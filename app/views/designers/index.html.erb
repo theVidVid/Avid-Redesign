@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Designers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Company name</th>
+      <th>Company website</th>
+      <th>Profile pic</th>
+      <th>Design image</th>
+      <th>Location</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @designers.each do |designer| %>
+      <tr>
+        <td><%= designer.first_name %></td>
+        <td><%= designer.last_name %></td>
+        <td><%= designer.email %></td>
+        <td><%= designer.phone_number %></td>
+        <td><%= designer.company_name %></td>
+        <td><%= designer.company_website %></td>
+        <td><%= designer.profile_pic %></td>
+        <td><%= designer.design_image %></td>
+        <td><%= designer.location %></td>
+        <td><%= designer.user_id %></td>
+        <td><%= link_to 'Show', designer %></td>
+        <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
+        <td><%= link_to 'Destroy', designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Designer', new_designer_path %>

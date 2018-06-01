@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @designer.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @designer.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @designer.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @designer.phone_number %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @designer.company_name %>
+</p>
+
+<p>
+  <strong>Company website:</strong>
+  <%= @designer.company_website %>
+</p>
+
+<p>
+  <strong>Profile pic:</strong>
+  <%= image_tag(@designer.profile_pic_url, width: 200) if @designer.profile_pic.present? %>
+</p>
+
+<p>
+  <strong>Design image:</strong>
+  <%= image_tag(@designer.design_image_url, width: 600) if @designer.design_image.present? %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @designer.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @designer.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_designer_path(@designer) %> |
+<%= link_to 'Back', designers_path %>
