@@ -14,7 +14,6 @@
       <th>Profile pic</th>
       <th>Design image</th>
       <th>Location</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,10 +30,9 @@
         <td><%= designer.profile_pic %></td>
         <td><%= designer.design_image %></td>
         <td><%= designer.location %></td>
-        <td><%= designer.designer_id %></td>
         <td><%= link_to 'Show', designer %></td>
         <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
-        <td><%= link_to 'Destroy', designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -43,3 +41,17 @@
 <br>
 
 <%= link_to 'New Designer', new_designer_path %>
+
+<% if user_signed_in? %>
+ 
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+ 
+<% else %>
+ 
+  <%= link_to('Register', new_user_registration_path)  %>
+  <%= link_to('Login', new_user_session_path)  %>  
+ 
+<% end %>
+
+
