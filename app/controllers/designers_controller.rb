@@ -1,5 +1,6 @@
 class DesignersController < ApplicationController
   before_action :set_designer, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, :only => [:index]
 
   # GET /designers
   # GET /designers.json

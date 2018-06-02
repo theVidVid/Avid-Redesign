@@ -1,0 +1,2 @@
+class TopDesigner < ApplicationRecord
+end

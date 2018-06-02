@@ -1,0 +1,2 @@
+module DesignProfessionalsHelper
+end
