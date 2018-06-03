@@ -5,12 +5,17 @@ class DesignersController < ApplicationController
   # GET /designers
   # GET /designers.json
   def index
-    @designers = Designer.all
+    @designers = Designer.all.order("created_at DESC")
   end
 
   # GET /designers/1
   # GET /designers/1.json
   def show
+    if params[:search]
+      @designers = Designer.search(params[:search]).order("created_at DESC")
+    else
+      @designers = Designer.all.order("created_at DESC")
+    end
   end
 
   # GET /designers/new

@@ -1,6 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Designers</h1>
+
+<h1 class="header text-center">Designer Lookbook</h1>
+<div class="container">
+  <% @designers.each do |designer| %>
+    <div class="card justify-content-center" style="width: 20rem;">
+      <div class="card-img-top justify-content-center">
+        <%= image_tag(designer.design_image_url, width: 320, height:200) if designer.design_image.present? %>
+      </div>  
+      <div class="card-body justify-content-center">
+        <h3 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h3>
+        <div class="avatar justify-content-center">
+          <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
+        </div>
+        <p class="card-text"><%= designer.company_name %></p>
+        <a href="mailto:<%= designer.email %>" class="btn btn-primary">Email</a>
+      </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= designer.location %></li>
+          </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row col-md-12 text-center justify-content-center" style="margin-bottom: 5rem;">
+      <% @designers.each do |designer| %>
+        <div class="card justify-content-center">
+          <%= image_tag(designer.design_image_url, width: 400, height:250) if designer.design_image.present? %>
+          <div class="avatar justify-content-center">
+            <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h5>
+            <p class="card-text text-center"><%= designer.company_website %></p>
+          </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-center"><%= designer.location %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<h1 class="text-center">Designers</h1>
 
 <table>
   <thead>
@@ -27,8 +74,8 @@
         <td><%= designer.phone_number %></td>
         <td><%= designer.company_name %></td>
         <td><%= designer.company_website %></td>
-        <td><%= designer.profile_pic %></td>
-        <td><%= designer.design_image %></td>
+        <td><%= image_tag(designer.profile_pic_url, width: 100, height: 100) if designer.profile_pic.present? %></td>
+        <td><%= image_tag(designer.design_image_url, width: 100, height: 100) if designer.design_image.present? %></td>
         <td><%= designer.location %></td>
         <td><%= link_to 'Show', designer %></td>
         <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
@@ -43,15 +90,11 @@
 <%= link_to 'New Designer', new_designer_path %>
 
 <% if user_signed_in? %>
- 
   <%= link_to('Edit registration', edit_user_registration_path) %>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
- 
-<% else %>
- 
+<% else %> 
   <%= link_to('Register', new_user_registration_path)  %>
   <%= link_to('Login', new_user_session_path)  %>  
- 
 <% end %>
 
 
