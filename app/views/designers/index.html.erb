@@ -1,44 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-      <div class="container marketing">
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-        <% @designers.each do |designer| %>
-          <div class="col-lg-4">
-            <img class="rounded-circle <%= image_tag(designer.design_image_url, width: 320, height:200) if designer.design_image.present? %>"></img>
-            <h2><%= link_to designer.first_name, designer %></h2>
-            <p><%= designer.company_name %></p>
-            <p><a class="btn btn-secondary" role="button">View details &raquo;<%= link_to designer.first_name, designer %></a></p>
-          </div>
-        <% end %>  
-      </div>    
 
 <h1 class="header text-center">Designer Lookbook</h1>
-<div class="container" id="designer-cards">
-  <div class="row">
-    <% @designers.each do |designer| %>
-      <div class="col-lg-4">
-        <div class="card justify-content-center" style="width: 20rem; height: auto">
-          <div class="card-img-top justify-content-center">
-            <%= image_tag(designer.design_image_url, width: 320, height:200) if designer.design_image.present? %>
-          </div>  
-          <div class="card-body justify-content-center">
-            <h3 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h3>
-            <div class="avatar justify-content-center">
-              <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
-            </div>
-            <p class="card-text"><%= designer.company_name %></p>
-            <a href="mailto:<%= designer.email %>" class="btn btn-primary">Email</a>
-          </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= designer.location %></li>
-              </ul>
-          </div>
+<div class="container">
+  <% @designers.each do |designer| %>
+    <div class="card justify-content-center" style="width: 20rem;">
+      <div class="card-img-top justify-content-center">
+        <%= image_tag(designer.design_image_url, width: 320, height:200) if designer.design_image.present? %>
+      </div>  
+      <div class="card-body justify-content-center">
+        <h3 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h3>
+        <div class="avatar justify-content-center">
+          <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
+        </div>
+        <p class="card-text"><%= designer.company_name %></p>
+        <a href="mailto:<%= designer.email %>" class="btn btn-primary">Email</a>
+      </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= designer.location %></li>
+          </ul>
       </div>
     <% end %>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row col-md-12 text-center justify-content-center" style="margin-bottom: 5rem;">
+      <% @designers.each do |designer| %>
+        <div class="card justify-content-center">
+          <%= image_tag(designer.design_image_url, width: 400, height:250) if designer.design_image.present? %>
+          <div class="avatar justify-content-center">
+            <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h5>
+            <p class="card-text text-center"><%= designer.company_website %></p>
+          </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-center"><%= designer.location %></li>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
 
 <h1 class="text-center">Designers</h1>
 
