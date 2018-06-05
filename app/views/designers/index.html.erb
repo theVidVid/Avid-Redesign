@@ -1,32 +1,9 @@
 <p id="notice"><%= notice %></p>
 <% if @designers.blank? %>
-  <h4>There are no current Design Firms with the name <%= params[:search] %>.</h4>
+  <h4 class="text-center">There are no current Design Firms with the name <%= params[:search] %>.</h4>
 <% end %>
 
-<h1 class="header text-center">Designer Lookbook</h1>
-<div class="container">
-  <% @designers.each do |designer| %>
-    <div class="card justify-content-center" style="width: 20rem;">
-      <div class="card-img-top justify-content-center">
-        <%= image_tag(designer.design_image_url, width: 320, height:200) if designer.design_image.present? %>
-      </div>  
-      <div class="card-body justify-content-center">
-        <h3 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h3>
-        <div class="avatar justify-content-center">
-          <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
-        </div>
-        <p class="card-text"><%= designer.company_name %></p>
-        <a href="mailto:<%= designer.email %>" class="btn btn-primary">Email</a>
-      </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= designer.location %></li>
-          </ul>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
+<h1 class="header text-center">Design Lookbook</h1>
 <div class="container">
   <div class="row col-md-12 text-center justify-content-center" style="margin-bottom: 5rem;">
       <% @designers.each do |designer| %>
@@ -36,8 +13,8 @@
             <%= image_tag(designer.profile_pic_url, width: 150, height:150) if designer.profile_pic.present? %>
           </div>
           <div class="card-body">
-            <h5 class="card-title card-dark text-center"><%= link_to designer.first_name, designer %></h5>
-            <p class="card-text text-center"><%= designer.company_website %></p>
+            <h5 class="card-title card-dark text-center"><%= link_to designer.company_name, designer %></h5>
+            <a class="card-text text-center"><%= designer.company_website %></a>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item text-center"><%= designer.location %></li>

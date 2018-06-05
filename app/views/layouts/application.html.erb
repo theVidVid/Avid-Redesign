@@ -10,7 +10,37 @@
   </head>
 
   <body>
-    <%= render "/shared/header" %>
+  <% if @designers.blank? %>
+    <h4 class="text-center">There are no current Design Firms with the name <%= params[:search] %>.</h4>
+  <% end %>
+    <header class="mb-5">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Avid Design</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/designers">Designers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clients">Clients</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+          <%= form_tag(designers_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Designers" %>
+            <button class="btn btn-outline-success my-2 my-sm-0"><%= submit_tag "Search", :name => nil %></button>
+            <% end %>
+          </form>
+        </div>
+      </nav>
+    </header>
+
     <% unless flash.empty? %>
         <script type="text/javascript">
               <% flash.each do |f| %>
