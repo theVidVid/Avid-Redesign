@@ -5,6 +5,15 @@
     display:inline-block;
 }
 
+.table { 
+  table-layout: fixed; 
+}
+
+table th, table td { 
+  overflow: hidden; 
+}
+
+
 /* stylelint-disable selector-list-comma-newline-after */
 
 .blog-header {
