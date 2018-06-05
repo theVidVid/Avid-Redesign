@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% if @designers.blank? %>
+  <h4>There are no current Design Firms with the name <%= params[:search] %>.</h4>
+<% end %>
 
 <h1 class="header text-center">Designer Lookbook</h1>
 <div class="container">
