@@ -34,7 +34,7 @@ class DesignersController < ApplicationController
 
     respond_to do |format|
       if @designer.save
-        format.html { redirect_to @designer, notice: 'Designer was successfully created.' }
+        format.html { redirect_to @designer, notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @designer }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class DesignersController < ApplicationController
   def update
     respond_to do |format|
       if @designer.update(designer_params)
-        format.html { redirect_to @designer, notice: 'Designer was successfully updated.' }
+        format.html { redirect_to @designer, notice: 'Account was successfully updated.' }
         format.json { render :show, status: :ok, location: @designer }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class DesignersController < ApplicationController
   def destroy
     @designer.destroy
     respond_to do |format|
-      format.html { redirect_to designers_url, notice: 'Designer was successfully destroyed.' }
+      format.html { redirect_to designers_url, notice: 'Account was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +75,6 @@ class DesignersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def designer_params
-      params.require(:designer).permit(:first_name, :last_name, :email, :phone_number, :company_name, :company_website, :profile_pic, :design_image, :location, :user_id, :remove_profile_pic, :remove_design_image, :about)
+      params.require(:designer).permit(:first_name, :last_name, :email, :phone_number, :company_name, :company_website, :profile_pic, :design_image, :location, :user_id, :remove_profile_pic, :remove_design_image, :about, :designer_id, :company_slogan)
     end
 end
