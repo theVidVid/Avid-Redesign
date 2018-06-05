@@ -56,11 +56,12 @@
       <th>Last name</th>
       <th>Email</th>
       <th>Phone number</th>
-      <th>Company name</th>
+      <th>Company name</th> 
       <th>Company website</th>
       <th>Profile pic</th>
       <th>Design image</th>
       <th>Location</th>
+      <th>About</th>      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -77,6 +78,7 @@
         <td><%= image_tag(designer.profile_pic_url, width: 100, height: 100) if designer.profile_pic.present? %></td>
         <td><%= image_tag(designer.design_image_url, width: 100, height: 100) if designer.design_image.present? %></td>
         <td><%= designer.location %></td>
+        <td><%= designer.about %></td>
         <td><%= link_to 'Show', designer %></td>
         <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
         <td><%= link_to 'Delete', designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
