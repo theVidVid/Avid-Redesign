@@ -59,7 +59,7 @@
           <div class="p-0 p-md-1"><%= image_tag(@designer.design_image_url, width: 975) if @designer.design_image.present? %></div>
           <h1 class="display-4 font-italic"><%= @designer.company_name %></h1>
           <p class="lead my-3"><%= @designer.company_slogan %></p>
-          <p class="lead mb-0"><a href="" class="text-white font-weight-bold"><%= @designer.company_website %></a></p>
+          <p class="lead mb-0"><a class="text-white font-weight-bold"><%= @designer.company_website %></a></p>
         </div>
       </div>
 
@@ -73,9 +73,8 @@
               </h3>
               <div class="mb-1 text-muted">Nov 12</div>
               <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Continue reading</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+            <img class="card-img-right flex-auto d-none d-md-block" src="<%= @designer.pictures[1].url %>" alt="Card image cap">
           </div>
         </div>
         <div class="col-md-6">
@@ -87,9 +86,8 @@
               </h3>
               <div class="mb-1 text-muted">Nov 11</div>
               <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Continue reading</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+            <img class="card-img-right flex-auto d-none d-md-block" src="<%= @designer.pictures[2].url %>" alt="Card image cap">
           </div>
         </div>
       </div>
@@ -195,8 +193,8 @@
           <div class="p-3">
             <h4 class="font-italic">Elsewhere</h4>
             <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Pinterest</a></li>
               <li><a href="#">Facebook</a></li>
             </ol>
           </div>

@@ -1,4 +1,4 @@
-<%= form_with(model: designer, local: true) do |form| %>
+<%= form_with(model: designer, local: true, html: { multipart: true }) do |form| %>
   <% if designer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(designer.errors.count, "error") %> prohibited this designer from being saved:</h2>
@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= form.label :pictures %>
+    <%= form.file_field :pictures, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  </div>
 
   <div class="field">
     <%= form.label :first_name %>
@@ -74,10 +79,11 @@
   <div class="field">
     <%= form.label :company_slogan %>
     <%= form.text_field :company_slogan %>
-  </div> 
-
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
 

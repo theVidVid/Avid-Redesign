@@ -80,7 +80,7 @@
         <td><%= image_tag(designer.profile_pic_url, width: 100, height: 100) if designer.profile_pic.present? %></td>
         <td><%= image_tag(designer.design_image_url, width: 100, height: 100) if designer.design_image.present? %></td>
         <td><%= designer.location %></td>
-        <td><%= designer.about %></td>
+        <td><%= designer.about %></td>        
         <td><%= link_to 'Show', designer %></td>
         <td><%= link_to 'Edit', edit_designer_path(designer) %></td>
         <td><%= link_to 'Delete', designer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
